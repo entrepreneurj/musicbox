@@ -1,0 +1,30 @@
+
+html, body, .container, #main, #library-container  { height:100%;}
+#library h1, #player h1, .album {
+ text-align: center;
+}
+
+#library {
+ height: 100%;
+ background-color: #eee;
+ -webkit-border-radius: 30px;
+ -moz-border-radius: 30px;
+ border-radius: 30px;
+ padding-top: 10px;
+ overflow-y:auto;
+}
+i {
+
+ color: #fff;
+ background-color: #333;
+ padding: 50px;
+ -webkit-border-radius: 50px;
+ -moz-border-radius: 50px;
+ border-radius: 50px;
+}
+
+#library a {
+ text-decoration: none;
+ color: #333;
+
+
