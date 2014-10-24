@@ -67,7 +67,28 @@ function sort_songs_by_album($library) {
         <script src="library.js"></script>
         <script>
         $( document ).ready(function() {
-            skel.init();
+            skel.init({ 
+                breakpoints: {
+                    large: {
+                    media: '(min-width: 1025px) and (max-width: 1280px)',
+                    containers: 960
+                    },
+                    medium: {
+                    media: '(min-width: 769px) and (max-width: 1024px)',
+                    containers: '90%'
+                    },
+                    small: {
+                    media: '(max-width: 768px)',
+                    containers: '95%',
+                    grid: {
+                        collapse: true
+                    }
+                    },
+                    xsmall: {
+                    media: '(max-width: 480px)'
+                    }
+                }}            
+            );
             //var library=<?php echo $json; ?>;
             for (var album in library) { 
                 if (library.hasOwnProperty(album)) {
@@ -104,20 +125,26 @@ function sort_songs_by_album($library) {
         });
         </script>
         <link href="static/css/font-awesome.min.css" rel="stylesheet">
-        <link href="static/css/base.css" rel="stylesheet">
+        <link href="static/css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="static/css/style-small.css" media="(max-width: 768px)" />
+        <link href='http://fonts.googleapis.com/css?family=Permanent+Marker|Walter+Turncoat|Open+Sans' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <div class="container">
             <section class="row">
-                <header class="12u">
-                    <h1>MusicBox</h1>
-                    <p>Where your ears melt in pleasure...</p>
-                </header>
+                <div id="header-container">
+                    <header class="12u">
+                        <h1>MusicBox</h1>
+                        <p>Where your ears melt in pleasure...</p>
+                    </header>
+                </div>
             </section>
             <section class="row" id="main">
-                <div  id="library-container" class="3u">
+                <div id="library-container" class="3u">
                     <div id="library">
+                    <header>
                     <h1>Library</h1>
+                    </header>
                         <div id="album-library">
                         </div>
                     </div>
@@ -133,7 +160,20 @@ function sort_songs_by_album($library) {
                             <source src="" type="audio/mp3">
                             Your browser does not support m4, please download the album instead
                         </audio>
-                        <div id="download"><a href="#" class="button" download>Download album</a></div>
+                        <div id="download"><p><a href="javascript:alert('Whoops, please choose an album first');" class="button" download>Download album</a></p></div>
+                    </div>
+                </div>
+                <div id="explanation-container" class="3u">
+                    <div id="explanation">
+                        <header>
+                        <h2>Welcome to Music Box</h2>
+                        </header>
+                        <p>Hello, traveller from the internet! Welcome to Music Box. Music Box is a simple dynamic application that reads the mp3 files in a folder, sorts them into albums (using embedded ID3 tags) and then lets you listen and download songs!</p>
+                        <p>To get started click on an album on the left!</p>
+                        <header>
+                        <h3>The next steps</h3>
+                        </header>
+                        <p>The next stage of Music Box will have a cleaner user interface and will also be able to extract embedded album artwork from mp3 files!</p>
                     </div>
                 </div>
             </section>
