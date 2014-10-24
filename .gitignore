@@ -3,3 +3,5 @@
 *.ogg
 *.wav
 *.swp
+*.json
+*.pyc
