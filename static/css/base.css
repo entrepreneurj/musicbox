@@ -1,6 +1,6 @@
 
-html, body, .container, #main, #library-container  { height:100%;}
-#library h1, #player h1, .album {
+html, body, .container, #main, #library-container, #player, #player-container { height:100%;}
+#library h1, #player h1, #player h4, .album, audio {
  text-align: center;
 }
 
@@ -14,7 +14,6 @@ html, body, .container, #main, #library-container  { height:100%;}
  overflow-y:auto;
 }
 i {
-
  color: #fff;
  background-color: #333;
  padding: 50px;
@@ -26,5 +25,51 @@ i {
 #library a {
  text-decoration: none;
  color: #333;
+}
+ 
 
+#player #download  {
+    text-align: center;
+    margin-top:15px;
+}
 
+#track-list {
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center; 
+    padding-left:25%;
+    padding-right:25%;
+    padding-top:5%;
+    height:50%;
+    width:100%;
+    margin-left:auto;
+    margin-right: auto;
+    overflow-y:auto;
+}
+
+.track {
+    padding: 0px 0px 0px 5%;
+    margin: 1%;
+    background-color:#eee;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+
+}
+.button {
+    text-align: center;
+ text-decoration: none;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+audio {
+    display: table;
+    margin-top:15px;
+    width:70%;
+    margin: 15px  auto 0 auto;
+}
