@@ -27,7 +27,8 @@ function get_songs($getID3) {
     $files = array();
     foreach (rglob("music/*.mp3") as $filename) {
         $file=$getID3->analyze($filename);
-        $files[$filename]=array("filename" => $filename, "album" => $file["tags"]["id3v2"]["album"][0], "title" => $file["tags"]["id3v2"]["title"][0], "track" => $file["tags"]["id3v2"]["track_number"][0], "artist" => ($file["tags"]["id3v2"]["artist"][0] ?: "Various Artists"));
+        // if no track # replace with hash of file's relative path
+        $files[$filename]=array("filename" => $filename, "album" => $file["tags"]["id3v2"]["album"][0], "title" => $file["tags"]["id3v2"]["title"][0], "track" => ($file["tags"]["id3v2"]["track_number"][0]?:substr(md5($filename),-5)), "artist" => ($file["tags"]["id3v2"]["artist"][0] ?: "Various Artists"));
     }
     return $files;
 }
